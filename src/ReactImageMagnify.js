@@ -1,4 +1,4 @@
-import detectIt from 'detect-it';
+import { primaryInput } from 'detect-it'
 import objectAssign from 'object-assign';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -34,8 +34,6 @@ class ReactImageMagnify extends React.Component {
 
     constructor(props) {
         super(props);
-
-        const { primaryInput } = detectIt;
         const {
             mouse: MOUSE,
             touch: TOUCH

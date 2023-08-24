@@ -27,7 +27,7 @@ module.exports = {
                 use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env', "@babel/preset-react"],
+                    presets: [['@babel/preset-env', { targets: "defaults" }], "@babel/preset-react" ],
                     //plugins: ['@babel/plugin-transform-class-properties']
                     //presets: ['@babel/preset-env', { targets: "defaults" }], // Babel preset for modern JavaScript
                     plugins: ['@babel/plugin-transform-class-properties', '@babel/plugin-proposal-class-properties']
