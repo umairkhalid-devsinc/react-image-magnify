@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/ethanselzer/react-image-magnify.git"
   },
-  "author": "Ethan Selzer <ethanselzer@gmail.com>",
+  "author": "Umair Khalid <ethanselzer@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ethanselzer/react-image-magnify/issues"
@@ -36,10 +36,11 @@
   ],
   "scripts": {
     "analyze": "npm run stats && webpack-bundle-analyzer stats.json",
-    "build-umd": "webpack -p",
+    "babel-loader": "^9.1.3",
+    "build-umd": "webpack",
     "build-cjs": "cross-env BABEL_ENV=cjs babel src --out-dir dist",
     "build-es": "babel src --out-dir dist/es",
-    "build": "rimraf dist && npm run build-cjs && npm run build-es && npm run build-umd",
+    "build": "rimraf dist && npm run build-umd",
     "build-watch": "cross-env BABEL_ENV=cjs babel --watch src --out-dir dist",
     "prepublishOnly": "npm run lint && npm test && npm run build",
     "lint": "eslint \"@(src|test)/**/*.js\"",
@@ -59,11 +60,16 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-class-properties": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.18.2",
+    "babel-loader": "^8.2.5",
     "chai": "4.3.7",
     "coveralls": "3.1.1",
     "cross-env": "^7.0.3",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.5.0",
     "eslint": "^8.47.0",
     "eslint-plugin-chai-friendly": "^0.4.0",
     "eslint-plugin-import": "^2.7.0",
@@ -78,12 +84,15 @@
     "rimraf": "^5.0.1",
     "sinon": "15.2.0",
     "webpack": "^5.88.2",
-    "webpack-bundle-analyzer": "^4.9.0"
+    "webpack-bundle-analyzer": "^4.9.0",
+    "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
-    "react": "~0.14.9 || ^17.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
+    "ajv": "^8.12.0",
     "clamp": "1.0.1",
     "detect-it": "4.0.1",
     "fast-deep-equal": "3.1.3",

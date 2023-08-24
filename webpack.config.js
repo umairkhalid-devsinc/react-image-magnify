@@ -1,10 +1,11 @@
-var path = require('path');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
+    mode: 'development',
     entry: './src/ReactImageMagnify.js',
     output: {
-        path: path.resolve(__dirname, './dist/umd'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'ReactImageMagnify.js',
         library: 'ReactImageMagnify',
         libraryTarget: 'umd'
@@ -23,7 +24,15 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', "@babel/preset-react"],
+                    //plugins: ['@babel/plugin-transform-class-properties']
+                    //presets: ['@babel/preset-env', { targets: "defaults" }], // Babel preset for modern JavaScript
+                    plugins: ['@babel/plugin-transform-class-properties', '@babel/plugin-proposal-class-properties']
+                  },
+              }
             }
         ]
     },
