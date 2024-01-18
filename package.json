@@ -29,7 +29,6 @@
     "product"
   ],
   "main": "dist/ReactImageMagnify.js",
-  "module": "dist/es/ReactImageMagnify.js",
   "files": [
     "dist",
     "LICENCE"
