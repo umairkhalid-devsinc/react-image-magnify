@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import requiredIf from 'react-required-if';
-import objectAssign from 'object-assign';
 
 const BaseImageShape = {
     alt: PropTypes.string,
@@ -13,7 +11,7 @@ const BaseImageShape = {
 }
 
 export const LargeImageShape = PropTypes.shape(
-    objectAssign(
+    Object.assign(
         {},
         BaseImageShape,
         {
@@ -24,13 +22,13 @@ export const LargeImageShape = PropTypes.shape(
 );
 
 export const SmallImageShape = PropTypes.shape(
-    objectAssign(
+    Object.assign(
         {},
         BaseImageShape,
         {
             isFluidWidth: PropTypes.bool,
-            width: requiredIf(PropTypes.number, props => !props.isFluidWidth),
-            height: requiredIf(PropTypes.number, props => !props.isFluidWidth)
+            width: !props.isFluidWidth ? PropTypes.number.isRequired : PropTypes.number,
+            height: !props.isFluidWidth ? PropTypes.number.isRequired : PropTypes.number
         }
     )
 );

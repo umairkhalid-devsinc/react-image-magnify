@@ -1,5 +1,4 @@
 import { primaryInput } from 'detect-it'
-import objectAssign from 'object-assign';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactCursorPosition from 'react-cursor-position';
@@ -172,7 +171,7 @@ class ReactImageMagnify extends React.Component {
             smallImageHeight: fluidHeight
         } = this.state;
 
-        return objectAssign(
+        return Object.assign(
             {},
             smallImage,
             {

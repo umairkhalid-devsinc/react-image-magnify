@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import objectAssign from 'object-assign';
 import EnlargedImage from './EnlargedImage';
 
 export default class RenderEnlargedImage extends Component {
@@ -52,7 +51,7 @@ export default class RenderEnlargedImage extends Component {
     }
 
     get compositProps() {
-        return objectAssign(
+        return Object.assign(
             {},
             this.props,
             { isPortalRendered: this.isPortalRendered }

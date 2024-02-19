@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import objectAssign from 'object-assign';
 
 const Lens = (props) => {
     const {
@@ -26,7 +25,7 @@ const Lens = (props) => {
         transition: `opacity ${fadeDurationInMs}ms ease-in`
     };
 
-    const compositStyle = objectAssign(
+    const compositStyle = Object.assign(
         {},
         defaultStyle,
         parentSpecifiedStyle,

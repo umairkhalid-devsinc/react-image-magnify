@@ -1,5 +1,4 @@
 import React from 'react';
-import objectAssign from 'object-assign';
 
 import LensTop from './LensTop';
 import LensLeft from './LensLeft';
@@ -11,12 +10,12 @@ import LensPropTypes from '../../prop-types/Lens';
 export default function NegativeSpaceLens(inputProps) {
     const { style: userSpecifiedStyle } = inputProps;
 
-    const compositLensStyle = objectAssign(
+    const compositLensStyle = Object.assign(
         { backgroundColor: 'rgba(0,0,0,.4)' },
         userSpecifiedStyle
     );
 
-    const props = objectAssign(
+    const props = Object.assign(
         {},
         inputProps,
         { style: compositLensStyle }

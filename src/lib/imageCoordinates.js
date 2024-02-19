@@ -1,4 +1,3 @@
-import clamp from 'clamp';
 import {
     getContainerToImageRatio,
     getSmallToLargeImageRatio
@@ -55,8 +54,8 @@ export function getInPlaceEnlargedImageCoordinates({
 
 function clampImageCoordinates(imageCoordinates, minCoordinates, maxCoordinates) {
     return {
-        x: clamp(imageCoordinates.x, minCoordinates.x, maxCoordinates.x),
-        y: clamp(imageCoordinates.y, minCoordinates.y, maxCoordinates.y)
+        x: Math.min(Math.max(imageCoordinates.x, minCoordinates.x), maxCoordinates.x),
+        y: Math.min(Math.max(imageCoordinates.y, minCoordinates.y), maxCoordinates.y),
     };
 }
 

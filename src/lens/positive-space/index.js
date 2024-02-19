@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import objectAssign from 'object-assign';
 import LensPropTypes from '../../prop-types/Lens';
-import clamp from 'clamp';
 import dataUri from './assets/textured-lens-data-uri';
 
 export default class PositiveSpaceLens extends Component {
@@ -51,10 +49,9 @@ export default class PositiveSpaceLens extends Component {
         const maxTop = imageHeight - height;
         const maxLeft = imageWidth - width;
         const minOffset = 0;
-
         return {
-            top: clamp(top, minOffset, maxTop),
-            left: clamp(left, minOffset, maxLeft)
+            top: Math.min(Math.max(top, minOffset), maxTop),
+            left: Math.min(Math.max(left, minOffset), maxLeft)
         };
     }
 
@@ -109,7 +106,7 @@ export default class PositiveSpaceLens extends Component {
     }
 
     get compositStyle() {
-        return objectAssign(
+        return Object.assign(
             this.defaultStyle,
             this.userSpecifiedStyle,
             this.priorityStyle

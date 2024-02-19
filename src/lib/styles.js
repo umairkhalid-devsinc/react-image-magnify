@@ -1,4 +1,3 @@
-import objectAssign from 'object-assign';
 import isEqual from 'fast-deep-equal';
 
 export function getContainerStyle(smallImage, userSpecifiedStyle) {
@@ -25,7 +24,7 @@ export function getContainerStyle(smallImage, userSpecifiedStyle) {
         ? fluidWidthContainerStyle
         : fixedWidthContainerStyle;
 
-    const compositContainerStyle = objectAssign(
+    const compositContainerStyle = Object.assign(
         { cursor: 'crosshair' },
         userSpecifiedStyle,
         priorityContainerStyle
@@ -58,7 +57,7 @@ export function getSmallImageStyle(smallImage, style) {
         ? fluidWidthSmallImageStyle
         : fixedWidthSmallImageStyle;
 
-    const compositSmallImageStyle = objectAssign(
+    const compositSmallImageStyle = Object.assign(
         {},
         style,
         prioritySmallImageStyle
@@ -82,14 +81,14 @@ function getPrimaryEnlargedImageContainerStyle(isInPlaceMode, isPortalRendered) 
     };
 
     if (isInPlaceMode) {
-        return objectAssign(
+        return Object.assign(
             baseContainerStyle,
             sharedPositionStyle,
             { left: '0px' }
         );
     }
 
-    return objectAssign(
+    return Object.assign(
         baseContainerStyle,
         sharedPositionStyle,
         {
@@ -145,7 +144,7 @@ export function getEnlargedImageContainerStyle(params) {
         isTransitionActive
     });
 
-    cache.compositStyle = objectAssign(
+    cache.compositStyle = Object.assign(
         {},
         primaryStyle,
         userSpecifiedStyle,
@@ -174,7 +173,7 @@ export function getEnlargedImageStyle(params) {
         pointerEvents: 'none'
     };
 
-    const compositeImageStyle = objectAssign(
+    const compositeImageStyle = Object.assign(
         {},
         userSpecifiedStyle,
         priorityStyle
