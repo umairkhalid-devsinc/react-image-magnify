@@ -2,7 +2,7 @@ const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/ReactImageMagnify.js',
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -28,8 +28,6 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: [['@babel/preset-env', { targets: "defaults" }], "@babel/preset-react" ],
-                    //plugins: ['@babel/plugin-transform-class-properties']
-                    //presets: ['@babel/preset-env', { targets: "defaults" }], // Babel preset for modern JavaScript
                     plugins: ['@babel/plugin-transform-class-properties', '@babel/plugin-proposal-class-properties']
                   },
               }
