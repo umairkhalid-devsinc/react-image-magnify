@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import requiredIf from 'react-required-if';
 
 const BaseImageShape = {
     alt: PropTypes.string,
@@ -27,8 +28,8 @@ export const SmallImageShape = PropTypes.shape(
         BaseImageShape,
         {
             isFluidWidth: PropTypes.bool,
-            width: !props.isFluidWidth ? PropTypes.number.isRequired : PropTypes.number,
-            height: !props.isFluidWidth ? PropTypes.number.isRequired : PropTypes.number
+            width: requiredIf(PropTypes.number, props => !props.isFluidWidth),
+            height: requiredIf(PropTypes.number, props => !props.isFluidWidth)
         }
     )
 );
